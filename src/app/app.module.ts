@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
@@ -12,6 +13,11 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { UsersService } from './users.service';
 import { AppRoutingModule } from './app-routing.module';
+import { GetdataService } from './getdata.service';
+import { KeysPipe } from './keys.pipe';
+import { RemoveemptyPipe } from './removeempty.pipe';
+import { CreateServerComponent } from './create-server/create-server.component';
+import { ServerService } from './server.service';
 
 @NgModule({
   declarations: [
@@ -21,15 +27,19 @@ import { AppRoutingModule } from './app-routing.module';
     BasicHighlightDirective,
     BetterHighlightDirective,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    KeysPipe,
+    RemoveemptyPipe,
+    CreateServerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, GetdataService, ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

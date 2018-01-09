@@ -2,3 +2,16 @@
   user works!
 </p>
 <button class="btn btn-primary" (click)="onActivate($event)">{{activateText}}</button>
+
+<button class="btn btn-info" (click)="callDogo()">call a dogo</button>
+<div class="row">
+  <div class="col-md-12">
+    <p *ngFor="let dogo of dogos | keys | removeEmpty ">
+        {{dogo.key}}{{dogo.value}}      
+    </p>      
+  </div>
+</div>
+<!-- 
+
+  *ngIf="dogo.value !== 'null'"
+-->
